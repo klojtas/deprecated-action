@@ -14,11 +14,17 @@ on:
       warning-message:
         description: 'The warning message to display during the deprecation period.'
         required: true
-        default: 'This is a test warning message.'
+        default: |
+          ### :warning: Deprecation Warning
+          This is a test warning message.
+          Please check the [documentation](https://github.com/actions/checkout).
       error-message:
         description: 'The error message to display when the deprecation period has passed.'
         required: true
-        default: 'This is a test error message.'
+        default: |
+          ### :x: Deprecation Error
+          This is a test error message.
+          Please check the [documentation](https://github.com/actions/checkout).
 
 jobs:
   test:
