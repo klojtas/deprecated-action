@@ -1,0 +1,19 @@
+name: 'Deprecated Action'
+description: 'An action that displays a deprecation warning or an error based on a start date and a grace period.'
+inputs:
+  start-date:
+    description: 'The date when the deprecation period begins (YYYY-MM-DD format).'
+    required: true
+  days-till-error:
+    description: 'The number of days from the start date until an error is thrown.'
+    required: true
+    default: '30'
+  warning-message:
+    description: 'The warning message to display during the deprecation period.'
+    required: true
+outputs:
+  deprecation-message:
+    description: 'The deprecation message, either a warning or an error.'
+runs:
+  using: 'node20'
+  main: 'dist/index.js'

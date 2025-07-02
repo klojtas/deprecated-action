@@ -1,0 +1,20 @@
+name: Push Test
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Run deprecated action
+        uses: ./ # Uses the action in the root directory
+        with:
+          start-date: '2025-07-01'
+          days-till-error: '10'
+          warning-message: 'This is a test warning message.'
