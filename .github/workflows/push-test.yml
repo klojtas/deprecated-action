@@ -18,3 +18,4 @@ jobs:
           start-date: '2025-07-01'
           days-till-error: '10'
           warning-message: 'This is a test warning message.'
+          error-message: 'This is a test error message.'

@@ -2,6 +2,23 @@ name: Manual Test
 
 on:
   workflow_dispatch:
+    inputs:
+      start-date:
+        description: 'The date when the deprecation period begins (YYYY-MM-DD format).'
+        required: true
+        default: '2025-07-01'
+      days-till-error:
+        description: 'The number of days from the start date until an error is thrown.'
+        required: true
+        default: '30'
+      warning-message:
+        description: 'The warning message to display during the deprecation period.'
+        required: true
+        default: 'This is a test warning message.'
+      error-message:
+        description: 'The error message to display when the deprecation period has passed.'
+        required: true
+        default: 'This is a test error message.'
 
 jobs:
   test:
@@ -13,6 +30,7 @@ jobs:
       - name: Run deprecated action
         uses: ./ # Uses the action in the root directory
         with:
-          start-date: '2025-07-01'
-          days-till-error: '10'
-          warning-message: 'This is a test warning message.'
+          start-date: ${{ github.event.inputs.start-date }}
+          days-till-error: ${{ github.event.inputs.days-till-error }}
+          warning-message: ${{ github.event.inputs.warning-message }}
+          error-message: ${{ github.event.inputs.error-message }}

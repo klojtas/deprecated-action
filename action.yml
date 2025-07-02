@@ -11,6 +11,9 @@ inputs:
   warning-message:
     description: 'The warning message to display during the deprecation period.'
     required: true
+  error-message:
+    description: 'The error message to display when the deprecation period has passed.'
+    required: true
 outputs:
   deprecation-message:
     description: 'The deprecation message, either a warning or an error.'
