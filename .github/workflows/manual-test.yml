@@ -1,4 +1,4 @@
-name: Manual Test
+name: '🧪 Manual Test'
 
 on:
   workflow_dispatch:
@@ -27,13 +27,14 @@ on:
           Please check the [documentation](https://github.com/actions/checkout).
 
 jobs:
-  test:
+  test_deprecation_action:
+    name: '🔬 Test Deprecation Action'
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout code
+      - name: '🛒 Checkout code'
         uses: actions/checkout@v3
 
-      - name: Run deprecated action
+      - name: '🚀 Run Deprecated Action'
         uses: ./ # Uses the action in the root directory
         with:
           start-date: ${{ github.event.inputs.start-date }}
